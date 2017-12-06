@@ -96,7 +96,7 @@ router.post('/imageSearch', function(req, res, next) {
           if (err) return res.send(500, { error: err });
           console.log("done saving");
       });
-      res.send(item);
+
     }
 
 
@@ -109,6 +109,7 @@ router.post('/imageSearch', function(req, res, next) {
   google.on('result', function (item) {
       console.log('out', item);
   });
+  res.send('done');
 });
 
 module.exports = router;
