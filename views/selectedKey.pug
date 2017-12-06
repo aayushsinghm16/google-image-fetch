@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= key
+  a(href='/') Home
+  br
+  a(href='/keywords') keywords
+  br
+  each url in urls
+    img(src='/'+url)
