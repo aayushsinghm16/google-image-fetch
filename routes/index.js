@@ -16,7 +16,7 @@ var image = Schema({
   collection: 'imageSearch'
 });
 var SearchImage = mongoose.model('SearchImage', image);
-mongoose.connect('mongodb://localhost/darwin', { useMongoClient: true });
+mongoose.connect('mongodb://aayushsingh:abcd1234@ds129936.mlab.com:29936/darwinlab', { useMongoClient: true });
 mongoose.Promise = global.Promise;
 
 //index page
