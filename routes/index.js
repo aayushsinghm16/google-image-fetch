@@ -76,27 +76,19 @@ router.post('/imageSearch', function(req, res, next) {
         callback();
       }
       downloadIMG();
-        //urls.push('images/googleSearch/'+value.url.split('\\').pop().split('/').pop())
     },function(err){
       if(err) console.error(err.message);
       imageUploadAndCompressionDone(urls)
     });
     function imageUploadAndCompressionDone(item) {
-      //var imageData = new SearchImage({ keyword: req.body.text, imagesUrl:item });
-      // imageData.save(function (err) {
-      //   if (err) {
-      //     console.log(err);
-      //   } else {
-      //     console.log('datasaved');
-      //   }
-      // });
       var query = {'keyword': req.body.text};
 
       SearchImage.findOneAndUpdate(query, { keyword: req.body.text, imagesUrl:item }, {upsert:true}, function(err, doc){
           if (err) return res.send(500, { error: err });
           console.log("done saving");
+    
       });
-      res.send(item);
+
     }
 
 
@@ -109,6 +101,7 @@ router.post('/imageSearch', function(req, res, next) {
   google.on('result', function (item) {
       console.log('out', item);
   });
+  res.send('done');
 });
 
 module.exports = router;
